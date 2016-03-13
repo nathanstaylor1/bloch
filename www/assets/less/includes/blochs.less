@@ -1,0 +1,162 @@
+.bloch{
+
+	&.clear{
+		.draw-bloch(transparent);
+	}
+	&.red{
+		.draw-bloch(@pastel-red);
+	}
+	&.green{
+		.draw-bloch(@pastel-green);
+	}
+	&.blue{
+		.draw-bloch(@pastel-blue);
+	}
+	&.yellow{
+		.draw-bloch(@pastel-yellow);
+	}	
+	&.grey{
+		.draw-bloch(@pastel-grey);
+	}
+
+
+	&.square{
+		height: 50px;
+		width: 50px;
+	}
+
+	&.vertical-rectangle{
+		height: 120px;
+		width: 50px;
+	}
+
+
+	&.horizontal-rectangle{
+		height: 50px;
+		width: 150px;
+		&.wide{
+			width: 300px;
+		}
+	}
+
+	&.float-right{
+		float: right;
+	}
+
+	&.slab{
+		height: 200px;
+		width: 100%;
+
+		&.small{
+			height: 100px
+		}
+		&.large{
+			height: 300px;
+		}	
+		&.half-width{
+			width: 50%;
+		}
+		&.space-content{
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+	}
+
+}
+
+.bloch-grid{
+	position: relative;
+
+	.grid-toggle{
+		position: absolute;
+		z-index: 1000;
+		left: -100px;
+		top: 0;
+		font-family: monospace;
+		font-style: bold;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 10px;
+		padding: 10px 5px;
+		height: 50px;
+		width: 50px;
+		line-height: 12px;
+		cursor: pointer;	
+		transition: background 300ms;
+		.no-select;
+		&.blue{
+			color: fadeout(@pastel-blue, 50%);
+			border: 2px dashed fadeout(@pastel-blue, 60%);
+			outline: 2px dashed fadeout(@pastel-blue, 70%);
+		}
+		&.green{
+			color: fadeout(@pastel-green, 50%);
+			border: 2px dashed fadeout(@pastel-green, 60%);
+			outline: 2px dashed fadeout(@pastel-green, 70%);
+		}
+		&.yellow{
+			color: fadeout(@pastel-yellow, 50%);
+			border: 2px dashed fadeout(@pastel-yellow, 60%);
+			outline: 2px dashed fadeout(@pastel-yellow, 70%);
+		}
+		&.red{
+			color: fadeout(@pastel-red, 50%);
+			border: 2px dashed fadeout(@pastel-red, 60%);
+			outline: 2px dashed fadeout(@pastel-red, 70%);
+		}		
+		&.grey{
+			color: fadeout(@pastel-grey, 50%);
+			border: 2px dashed fadeout(@pastel-grey, 60%);
+			outline: 2px dashed fadeout(@pastel-grey, 70%);
+		}
+	}
+
+	&.no-toggle .grid-toggle{
+		display: none;
+	}
+
+
+	td{	
+		height: 50px;
+		width: 50px;
+	}
+	.bloch-grid-outline{
+		position: relative;
+		z-index: 1;
+		opacity: 1;
+		transition: opacity 500ms;
+		.bloch.blue.outline{
+			.draw-bloch-outline(@pastel-blue);
+		}
+		.bloch.green.outline{
+			.draw-bloch-outline(@pastel-green);
+		}
+		.bloch.red.outline{
+			.draw-bloch-outline(@pastel-red);
+		}
+		.bloch.yellow.outline{
+			.draw-bloch-outline(@pastel-yellow);
+		}
+		.bloch.grey.outline{
+			.draw-bloch-outline(@pastel-grey);
+		}
+
+	}
+
+	.bloch-grid-pieces{
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+	}
+
+	&.hide-grid{
+		.bloch-grid-outline{
+			opacity: 0;
+		}
+	}
+
+}
+

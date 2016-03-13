@@ -1,0 +1,719 @@
+.no-select {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                not supported by any browser */
+}
+section {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+}
+section.full-height {
+  min-height: 100vh;
+}
+section.half-height {
+  min-height: 50vh;
+}
+section.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.space-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+section.off-screen .bloch,
+section.off-screen .bloch > .bloch-parts .bloch > .bloch-parts * {
+  transform: none !important;
+}
+.bloch.clear {
+  position: relative;
+  z-index: 10;
+}
+.bloch.clear .bloch-parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 1) perspective(200px) translateZ(0px);
+  opacity: 1;
+  transition: transform 500ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.06, 0.8, 0.48, 1.06);
+}
+.bloch.clear.shrink .bloch-parts {
+  transition-timing-function: cubic-bezier(0.56, 0.31, 0.87, 0.34);
+  transition: transform 500ms, opacity 500ms;
+  transform: scale(0, 0) perspective(200px) translateZ(-200px);
+  opacity: 0;
+}
+.bloch.clear > .bloch-parts .face {
+  content: '';
+  background-color: transparent;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(13, 13, 13, 0);
+}
+.bloch.clear > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+.bloch.clear > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+  background-color: rgba(31, 31, 31, 0);
+  border: 1px solid rgba(51, 51, 51, 0);
+}
+.bloch.clear > .bloch-parts .side.top-bottom.bottom-showing {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.bloch.clear > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.bloch.red {
+  position: relative;
+  z-index: 10;
+}
+.bloch.red .bloch-parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 1) perspective(200px) translateZ(0px);
+  opacity: 1;
+  transition: transform 500ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.06, 0.8, 0.48, 1.06);
+}
+.bloch.red.shrink .bloch-parts {
+  transition-timing-function: cubic-bezier(0.56, 0.31, 0.87, 0.34);
+  transition: transform 500ms, opacity 500ms;
+  transform: scale(0, 0) perspective(200px) translateZ(-200px);
+  opacity: 0;
+}
+.bloch.red > .bloch-parts .face {
+  content: '';
+  background-color: #ff9d70;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #ffb88a;
+}
+.bloch.red > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+.bloch.red > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+  background-color: #ffd5ad;
+  border: 1px solid #ffedd6;
+}
+.bloch.red > .bloch-parts .side.top-bottom.bottom-showing {
+  background-color: #ff260a;
+  border: 1px solid #ff6a3d;
+}
+.bloch.red > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+  background-color: #ff633d;
+  border: 1px solid #ff8656;
+}
+.bloch.green {
+  position: relative;
+  z-index: 10;
+}
+.bloch.green .bloch-parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 1) perspective(200px) translateZ(0px);
+  opacity: 1;
+  transition: transform 500ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.06, 0.8, 0.48, 1.06);
+}
+.bloch.green.shrink .bloch-parts {
+  transition-timing-function: cubic-bezier(0.56, 0.31, 0.87, 0.34);
+  transition: transform 500ms, opacity 500ms;
+  transform: scale(0, 0) perspective(200px) translateZ(-200px);
+  opacity: 0;
+}
+.bloch.green > .bloch-parts .face {
+  content: '';
+  background-color: #70ffc9;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #8affdc;
+}
+.bloch.green > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+.bloch.green > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+  background-color: #adffee;
+  border: 1px solid #d6fffa;
+}
+.bloch.green > .bloch-parts .side.top-bottom.bottom-showing {
+  background-color: #0aff71;
+  border: 1px solid #3dffa6;
+}
+.bloch.green > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+  background-color: #3dff9f;
+  border: 1px solid #56ffba;
+}
+.bloch.blue {
+  position: relative;
+  z-index: 10;
+}
+.bloch.blue .bloch-parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 1) perspective(200px) translateZ(0px);
+  opacity: 1;
+  transition: transform 500ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.06, 0.8, 0.48, 1.06);
+}
+.bloch.blue.shrink .bloch-parts {
+  transition-timing-function: cubic-bezier(0.56, 0.31, 0.87, 0.34);
+  transition: transform 500ms, opacity 500ms;
+  transform: scale(0, 0) perspective(200px) translateZ(-200px);
+  opacity: 0;
+}
+.bloch.blue > .bloch-parts .face {
+  content: '';
+  background-color: #8392ff;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #9da0ff;
+}
+.bloch.blue > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+.bloch.blue > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+  background-color: #c3c0ff;
+  border: 1px solid #ece9ff;
+}
+.bloch.blue > .bloch-parts .side.top-bottom.bottom-showing {
+  background-color: #1d66ff;
+  border: 1px solid #5074ff;
+}
+.bloch.blue > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+  background-color: #507aff;
+  border: 1px solid #6981ff;
+}
+.bloch.yellow {
+  position: relative;
+  z-index: 10;
+}
+.bloch.yellow .bloch-parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 1) perspective(200px) translateZ(0px);
+  opacity: 1;
+  transition: transform 500ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.06, 0.8, 0.48, 1.06);
+}
+.bloch.yellow.shrink .bloch-parts {
+  transition-timing-function: cubic-bezier(0.56, 0.31, 0.87, 0.34);
+  transition: transform 500ms, opacity 500ms;
+  transform: scale(0, 0) perspective(200px) translateZ(-200px);
+  opacity: 0;
+}
+.bloch.yellow > .bloch-parts .face {
+  content: '';
+  background-color: #ffd770;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #ffe88a;
+}
+.bloch.yellow > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+.bloch.yellow > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+  background-color: #fff6ad;
+  border: 1px solid #fffed6;
+}
+.bloch.yellow > .bloch-parts .side.top-bottom.bottom-showing {
+  background-color: #ff890a;
+  border: 1px solid #ffb93d;
+}
+.bloch.yellow > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+  background-color: #ffb23d;
+  border: 1px solid #ffca56;
+}
+.bloch.grey {
+  position: relative;
+  z-index: 10;
+}
+.bloch.grey .bloch-parts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1, 1) perspective(200px) translateZ(0px);
+  opacity: 1;
+  transition: transform 500ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.06, 0.8, 0.48, 1.06);
+}
+.bloch.grey.shrink .bloch-parts {
+  transition-timing-function: cubic-bezier(0.56, 0.31, 0.87, 0.34);
+  transition: transform 500ms, opacity 500ms;
+  transform: scale(0, 0) perspective(200px) translateZ(-200px);
+  opacity: 0;
+}
+.bloch.grey > .bloch-parts .face {
+  content: '';
+  background-color: #aeaeae;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #bbbbbb;
+}
+.bloch.grey > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+.bloch.grey > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+  background-color: #cdcdcd;
+  border: 1px solid #e1e1e1;
+}
+.bloch.grey > .bloch-parts .side.top-bottom.bottom-showing {
+  background-color: #7b7b7b;
+  border: 1px solid #959595;
+}
+.bloch.grey > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+  background-color: #959595;
+  border: 1px solid #a1a1a1;
+}
+.bloch.square {
+  height: 50px;
+  width: 50px;
+}
+.bloch.vertical-rectangle {
+  height: 120px;
+  width: 50px;
+}
+.bloch.horizontal-rectangle {
+  height: 50px;
+  width: 150px;
+}
+.bloch.horizontal-rectangle.wide {
+  width: 300px;
+}
+.bloch.float-right {
+  float: right;
+}
+.bloch.slab {
+  height: 200px;
+  width: 100%;
+}
+.bloch.slab.small {
+  height: 100px;
+}
+.bloch.slab.large {
+  height: 300px;
+}
+.bloch.slab.half-width {
+  width: 50%;
+}
+.bloch.slab.space-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.bloch-grid {
+  position: relative;
+}
+.bloch-grid .grid-toggle {
+  position: absolute;
+  z-index: 1000;
+  left: -100px;
+  top: 0;
+  font-family: monospace;
+  font-style: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 10px;
+  padding: 10px 5px;
+  height: 50px;
+  width: 50px;
+  line-height: 12px;
+  cursor: pointer;
+  transition: background 300ms;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                not supported by any browser */
+}
+.bloch-grid .grid-toggle.blue {
+  color: rgba(131, 146, 255, 0.5);
+  border: 2px dashed rgba(131, 146, 255, 0.4);
+  outline: 2px dashed rgba(131, 146, 255, 0.3);
+}
+.bloch-grid .grid-toggle.green {
+  color: rgba(112, 255, 201, 0.5);
+  border: 2px dashed rgba(112, 255, 201, 0.4);
+  outline: 2px dashed rgba(112, 255, 201, 0.3);
+}
+.bloch-grid .grid-toggle.yellow {
+  color: rgba(255, 215, 112, 0.5);
+  border: 2px dashed rgba(255, 215, 112, 0.4);
+  outline: 2px dashed rgba(255, 215, 112, 0.3);
+}
+.bloch-grid .grid-toggle.red {
+  color: rgba(255, 157, 112, 0.5);
+  border: 2px dashed rgba(255, 157, 112, 0.4);
+  outline: 2px dashed rgba(255, 157, 112, 0.3);
+}
+.bloch-grid .grid-toggle.grey {
+  color: rgba(174, 174, 174, 0.5);
+  border: 2px dashed rgba(174, 174, 174, 0.4);
+  outline: 2px dashed rgba(174, 174, 174, 0.3);
+}
+.bloch-grid.no-toggle .grid-toggle {
+  display: none;
+}
+.bloch-grid td {
+  height: 50px;
+  width: 50px;
+}
+.bloch-grid .bloch-grid-outline {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline {
+  position: relative;
+  z-index: 10;
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline .bloch-parts {
+  height: 100%;
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline > .bloch-parts .face {
+  content: '';
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(131, 146, 255, 0.2);
+  border: 2px dashed rgba(131, 146, 255, 0.3);
+  outline: 2px dashed rgba(131, 146, 255, 0.3);
+  cursor: pointer;
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(131, 146, 255, 0.4);
+  border: 2px dashed rgba(131, 146, 255, 0.3);
+  outline: 2px dashed rgba(131, 146, 255, 0.3);
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.blue.outline:hover > .bloch-parts .face,
+.bloch-grid .bloch-grid-outline .bloch.blue.outline:hover > .bloch-parts .side {
+  background-color: rgba(131, 146, 255, 0.7);
+  border: 2px dashed rgba(131, 146, 255, 0.8);
+  outline: 2px dashed rgba(131, 146, 255, 0.8);
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline {
+  position: relative;
+  z-index: 10;
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline .bloch-parts {
+  height: 100%;
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline > .bloch-parts .face {
+  content: '';
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(112, 255, 201, 0.2);
+  border: 2px dashed rgba(112, 255, 201, 0.3);
+  outline: 2px dashed rgba(112, 255, 201, 0.3);
+  cursor: pointer;
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(112, 255, 201, 0.4);
+  border: 2px dashed rgba(112, 255, 201, 0.3);
+  outline: 2px dashed rgba(112, 255, 201, 0.3);
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.green.outline:hover > .bloch-parts .face,
+.bloch-grid .bloch-grid-outline .bloch.green.outline:hover > .bloch-parts .side {
+  background-color: rgba(112, 255, 201, 0.7);
+  border: 2px dashed rgba(112, 255, 201, 0.8);
+  outline: 2px dashed rgba(112, 255, 201, 0.8);
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline {
+  position: relative;
+  z-index: 10;
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline .bloch-parts {
+  height: 100%;
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline > .bloch-parts .face {
+  content: '';
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 157, 112, 0.2);
+  border: 2px dashed rgba(255, 157, 112, 0.3);
+  outline: 2px dashed rgba(255, 157, 112, 0.3);
+  cursor: pointer;
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(255, 157, 112, 0.4);
+  border: 2px dashed rgba(255, 157, 112, 0.3);
+  outline: 2px dashed rgba(255, 157, 112, 0.3);
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.red.outline:hover > .bloch-parts .face,
+.bloch-grid .bloch-grid-outline .bloch.red.outline:hover > .bloch-parts .side {
+  background-color: rgba(255, 157, 112, 0.7);
+  border: 2px dashed rgba(255, 157, 112, 0.8);
+  outline: 2px dashed rgba(255, 157, 112, 0.8);
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline {
+  position: relative;
+  z-index: 10;
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline .bloch-parts {
+  height: 100%;
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline > .bloch-parts .face {
+  content: '';
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 215, 112, 0.2);
+  border: 2px dashed rgba(255, 215, 112, 0.3);
+  outline: 2px dashed rgba(255, 215, 112, 0.3);
+  cursor: pointer;
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(255, 215, 112, 0.4);
+  border: 2px dashed rgba(255, 215, 112, 0.3);
+  outline: 2px dashed rgba(255, 215, 112, 0.3);
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline:hover > .bloch-parts .face,
+.bloch-grid .bloch-grid-outline .bloch.yellow.outline:hover > .bloch-parts .side {
+  background-color: rgba(255, 215, 112, 0.7);
+  border: 2px dashed rgba(255, 215, 112, 0.8);
+  outline: 2px dashed rgba(255, 215, 112, 0.8);
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline {
+  position: relative;
+  z-index: 10;
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline .bloch-parts {
+  height: 100%;
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline > .bloch-parts .face {
+  content: '';
+  z-index: -1;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(174, 174, 174, 0.2);
+  border: 2px dashed rgba(174, 174, 174, 0.3);
+  outline: 2px dashed rgba(174, 174, 174, 0.3);
+  cursor: pointer;
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline > .bloch-parts .side {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(174, 174, 174, 0.4);
+  border: 2px dashed rgba(174, 174, 174, 0.3);
+  outline: 2px dashed rgba(174, 174, 174, 0.3);
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline > .bloch-parts .side.top-bottom {
+  width: 100%;
+  height: 25px;
+  left: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline > .bloch-parts .side.left-right {
+  height: 100%;
+  width: 25px;
+  top: 0;
+}
+.bloch-grid .bloch-grid-outline .bloch.grey.outline:hover > .bloch-parts .face,
+.bloch-grid .bloch-grid-outline .bloch.grey.outline:hover > .bloch-parts .side {
+  background-color: rgba(174, 174, 174, 0.7);
+  border: 2px dashed rgba(174, 174, 174, 0.8);
+  outline: 2px dashed rgba(174, 174, 174, 0.8);
+}
+.bloch-grid .bloch-grid-pieces {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bloch-grid.hide-grid .bloch-grid-outline {
+  opacity: 0;
+}

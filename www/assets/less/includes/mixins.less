@@ -1,0 +1,148 @@
+.draw-bloch(@color){
+
+	position: relative;
+	z-index: 10;
+
+	.bloch-parts{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: scale(1,1) perspective(200px) translateZ(0px);
+		opacity: 1;
+		transition: transform 500ms, opacity 300ms;
+		transition-timing-function: cubic-bezier(.06,.8,.48,1.06);
+	}
+	&.shrink{
+		.bloch-parts{
+			transition-timing-function: cubic-bezier(.56,.31,.87,.34);
+			transition: transform 500ms, opacity 500ms;
+			transform: scale(0,0) perspective(200px) translateZ(-200px);
+			opacity: 0;
+		}
+	}
+
+	>.bloch-parts .face{
+		content: '';
+		background-color: @color;
+		z-index: -1;
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border: 1px solid spin(lighten(@color, 5%), 5);
+	}
+
+
+	>.bloch-parts .side{
+		display: block;
+		position: absolute;
+		z-index: 1;
+	}
+
+	>.bloch-parts .side.top-bottom{
+		width: 100%;
+		height: @depth;
+		left: 0;
+		.top-color(@color);
+		&.bottom-showing{
+			.bottom-color(@color);
+		}
+	}
+
+	>.bloch-parts .side.left-right{
+		height: 100%;
+		width: @depth;
+		top: 0;
+		.side-color(@color);
+	}
+
+}
+
+.draw-bloch-outline(@color){
+
+	position: relative;
+	z-index: 10;
+
+	.bloch-parts{
+		height: 100%;
+	}
+
+	>.bloch-parts .face{
+		content: '';
+		z-index: -1;
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: fadeout(@color,80%); 
+		border: 2px dashed fadeout(@color,70%);
+		outline: 2px dashed fadeout(@color,70%);
+		cursor: pointer;
+	}
+
+
+	>.bloch-parts .side{
+		display: block;
+		position: absolute;
+		z-index: 1;
+		background-color: fadeout(@color,60%); 
+		border: 2px dashed fadeout(@color,70%);
+		outline: 2px dashed fadeout(@color,70%);
+	}
+
+	>.bloch-parts .side.top-bottom{
+		width: 100%;
+		height: @depth;
+		left: 0;
+
+	}
+
+	>.bloch-parts .side.left-right{
+		height: 100%;
+		width: @depth;
+		top: 0;
+	}
+
+	&:hover{
+		>.bloch-parts .face, >.bloch-parts .side{
+			background-color: fadeout(@color,30%); 
+			border: 2px dashed fadeout(@color,20%);
+			outline: 2px dashed fadeout(@color,20%);
+		}
+
+	}
+
+}
+
+
+.side-color(@color){
+	background-color: spin(darken(@color, 10%), -7);
+	border: 1px solid spin(darken(@color, 5%), -2);
+}
+.top-color(@color){
+	background-color: spin(lighten(@color, 12%), 10);
+	border: 1px solid spin(lighten(@color, 20%), 15);
+}
+.bottom-color(@color){
+	background-color: spin(darken(@color, 20%), -12);
+	border: 1px solid spin(darken(@color, 10%), -5);
+}
+
+.no-select{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;  		   /* non-prefixed version, currently
+                                not supported by any browser */
+}
+
+
+

@@ -1,0 +1,37 @@
+section{
+
+	width: 100%;
+	height: auto;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 50px;
+
+	&.full-height{
+		min-height: 100vh;
+	}
+
+
+	&.half-height{
+		min-height: 50vh;
+	}
+
+
+	&.center-content{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&.space-content{
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	&.off-screen{
+		.bloch, .bloch >.bloch-parts .bloch > .bloch-parts * {
+			transform: none !important;
+		}
+	}
+
+}
