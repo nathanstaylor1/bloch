@@ -126,19 +126,19 @@
 		z-index: 1;
 		opacity: 1;
 		transition: opacity 500ms;
-		.bloch.blue.outline{
+		.bloch-outline.blue{
 			.draw-bloch-outline(@pastel-blue);
 		}
-		.bloch.green.outline{
+		.bloch-outline.green{
 			.draw-bloch-outline(@pastel-green);
 		}
-		.bloch.red.outline{
+		.bloch-outline.red{
 			.draw-bloch-outline(@pastel-red);
 		}
-		.bloch.yellow.outline{
+		.bloch-outline.yellow{
 			.draw-bloch-outline(@pastel-yellow);
 		}
-		.bloch.grey.outline{
+		.bloch-outline.grey{
 			.draw-bloch-outline(@pastel-grey);
 		}
 
@@ -157,6 +157,45 @@
 			opacity: 0;
 		}
 	}
+
+	&.resolution-10 .bloch, &.resolution-10 .bloch-outline{ width: 10px; height: 10px;}
+	&.resolution-20 .bloch, &.resolution-20 .bloch-outline{ width: 20px; height: 20px;}
+	&.resolution-25 .bloch, &.resolution-25 .bloch-outline{ width: 25px; height: 25px;}
+	&.resolution-30 .bloch, &.resolution-30 .bloch-outline{ width: 30px; height: 30px;}
+	&.resolution-40 .bloch, &.resolution-40 .bloch-outline{ width: 40px; height: 40px;}
+	&.resolution-50 .bloch, &.resolution-50 .bloch-outline{ width: 50px; height: 50px;}
+	&.resolution-60 .bloch, &.resolution-60 .bloch-outline{ width: 60px; height: 60px;}
+	&.resolution-70 .bloch, &.resolution-70 .bloch-outline{ width: 70px; height: 70px;}
+	&.resolution-75 .bloch, &.resolution-75 .bloch-outline{ width: 75px; height: 75px;}
+	&.resolution-80 .bloch, &.resolution-80 .bloch-outline{ width: 80px; height: 80px;}
+	&.resolution-90 .bloch, &.resolution-90 .bloch-outline{ width: 90px; height: 90px;}
+	&.resolution-100 .bloch, &.resolution-100 .bloch-outline{ width: 100px; height: 100px;}
+	
+	&.resolution-10 .side.top-bottom {height: 5px !important;}
+	&.resolution-20 .side.top-bottom {height: 10px !important;}
+	&.resolution-25 .side.top-bottom {height: 12.5px !important;}
+	&.resolution-30 .side.top-bottom {height: 15px !important;}
+	&.resolution-40 .side.top-bottom {height: 20px !important;}
+	&.resolution-50 .side.top-bottom {height: 25px !important;}
+	&.resolution-60 .side.top-bottom {height: 30px !important;}
+	&.resolution-70 .side.top-bottom {height: 35px !important;}
+	&.resolution-75 .side.top-bottom {height: 37.5px !important;}
+	&.resolution-80 .side.top-bottom {height: 40px !important;}
+	&.resolution-90 .side.top-bottom {height: 45px !important;}
+	&.resolution-100 .side.top-bottom {height: 50px !important;}
+
+	&.resolution-10 .side.left-right {width: 5px !important;}
+	&.resolution-20 .side.left-right {width: 10px !important;}
+	&.resolution-25 .side.left-right {width: 12.5px !important;}
+	&.resolution-30 .side.left-right {width: 15px !important;}
+	&.resolution-40 .side.left-right {width: 20px !important;}
+	&.resolution-50 .side.left-right {width: 25px !important;}
+	&.resolution-60 .side.left-right {width: 30px !important;}
+	&.resolution-70 .side.left-right {width: 35px !important;}
+	&.resolution-75 .side.left-right {width: 37.5px !important;}
+	&.resolution-80 .side.left-right {width: 40px !important;}
+	&.resolution-90 .side.left-right {width: 45px !important;}
+	&.resolution-100 .side.left-right {width: 50px !important;}
 
 }
 

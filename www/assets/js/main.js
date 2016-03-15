@@ -33,11 +33,16 @@ function addSides(){
 
 	var sidesMarkup = "<div class='bloch-parts'>";
 	sidesMarkup += "<span class='face'></span>";
-	sidesMarkup += "<span class='side top-bottom'>";
-	sidesMarkup += "</span><span class='side left-right'>";
-	sidesMarkup += "</span></div>";
+	sidesMarkup += "<span class='side top-bottom'></span>";
+	sidesMarkup += "<span class='side left-right'></span>";
+	sidesMarkup += "</div>";
+
+	var faceMarkup = "<div class='bloch-parts'>";
+	faceMarkup += "<span class='face'></span>";
+	faceMarkup += "</div>";
 
 	$('.bloch').append(sidesMarkup);
+	$('.bloch-outline').append(faceMarkup);
 
 }
 
@@ -78,10 +83,7 @@ function manageMouse(windowData){
 
 		drawBlochs(windowData);
 
-
-
 	})
-
 
 }
 
@@ -129,27 +131,27 @@ function drawBlochs(windowData){
 	var TBskew = degAngle - 90;
 
 
-	$('section:not(.off-screen) .side.top-bottom').css('transform', 'skewX(' + TBskew + 'deg) rotateX(' + TBrotate + 'deg) scale(1,' + TBscale + ')') ;
-	$('section:not(.off-screen) .side.left-right').css('transform', 'skewY(' + LRskew + 'deg) rotateY(' + LRrotate + 'deg) scale(' + LRscale + ',1)') ;
+	$('section:not(.off-screen) .bloch:not(.shrink) .side.top-bottom').css('transform', 'skewX(' + TBskew + 'deg) rotateX(' + TBrotate + 'deg) scale(1,' + TBscale + ')') ;
+	$('section:not(.off-screen) .bloch:not(.shrink) .side.left-right').css('transform', 'skewY(' + LRskew + 'deg) rotateY(' + LRrotate + 'deg) scale(' + LRscale + ',1)') ;
 
-	xTranslate = $('section:not(.off-screen) .side.left-right')[0].getBoundingClientRect().width;
+	xTranslate = $('section:not(.off-screen) .bloch .side.left-right')[0].getBoundingClientRect().width;
 	xTranslate = windowData.xFromCenter > 0 ? xTranslate : -xTranslate;
 
-	yTranslate = $('section:not(.off-screen) .side.top-bottom')[0].getBoundingClientRect().height;
+	yTranslate = $('section:not(.off-screen) .bloch .side.top-bottom')[0].getBoundingClientRect().height;
 	yTranslate = windowData.yFromCenter > 0 ? yTranslate : -yTranslate;
 
-	$('section:not(.off-screen) .bloch .bloch').css('transform', 'translateX(' + xTranslate + 'px) translateY(' + yTranslate + 'px)');
+	$('section:not(.off-screen) .bloch:not(.shrink) .bloch:not(.shrink)').css('transform', 'translateX(' + xTranslate + 'px) translateY(' + yTranslate + 'px)');
 
 	if (windowData.xShift){
 
 		if (windowData.xPositiveAfter){
-			$('.side.left-right').css('left', 'auto');
-			$('.side.left-right').css('right', '100%');
-			$('.side.left-right').css('transform-origin', '100% 50%');
+			$('.bloch:not(.shrink) .side.left-right').css('left', 'auto');
+			$('.bloch:not(.shrink) .side.left-right').css('right', '100%');
+			$('.bloch:not(.shrink) .side.left-right').css('transform-origin', '100% 50%');
 		} else {
-			$('.side.left-right').css('left', '100%');
-			$('.side.left-right').css('right', 'auto');
-			$('.side.left-right').css('transform-origin', '0% 50%');
+			$('.bloch:not(.shrink) .side.left-right').css('left', '100%');
+			$('.bloch:not(.shrink) .side.left-right').css('right', 'auto');
+			$('.bloch:not(.shrink) .side.left-right').css('transform-origin', '0% 50%');
 		}
 
 		windowData.xShift = false;
@@ -158,15 +160,15 @@ function drawBlochs(windowData){
 	if (windowData.yShift){
 
 		if (windowData.yPositiveAfter){
-			$('.side.top-bottom').css('top', 'auto');
-			$('.side.top-bottom').css('bottom', '100%');
-			$('.side.top-bottom').css('transform-origin', '50% 100%');
-			$('.side.top-bottom').removeClass('bottom-showing'); 
+			$('.bloch:not(.shrink) .side.top-bottom').css('top', 'auto');
+			$('.bloch:not(.shrink) .side.top-bottom').css('bottom', '100%');
+			$('.bloch:not(.shrink) .side.top-bottom').css('transform-origin', '50% 100%');
+			$('.bloch:not(.shrink) .side.top-bottom').removeClass('bottom-showing'); 
 		} else {
-			$('.side.top-bottom').css('top', '100%');
-			$('.side.top-bottom').css('bottom', 'auto');
-			$('.side.top-bottom').css('transform-origin', '50% 0%');
-			$('.side.top-bottom').addClass('bottom-showing'); 
+			$('.bloch:not(.shrink) .side.top-bottom').css('top', '100%');
+			$('.bloch:not(.shrink) .side.top-bottom').css('bottom', 'auto');
+			$('.bloch:not(.shrink) .side.top-bottom').css('transform-origin', '50% 0%');
+			$('.bloch:not(.shrink) .side.top-bottom').addClass('bottom-showing'); 
 		}
 
 		windowData.yShift = false;
@@ -177,7 +179,7 @@ function fixZ(windowData){
 
 	var blochs = [];
 
-	$('section:not(.off-screen) .bloch, section:not(.off-screen) .bloch-grid').each(function(){
+	$('section:not(.off-screen) .bloch:not(.shrink), section:not(.off-screen) .bloch-grid').each(function(){
 		blochs.push({
 			elem: $(this),
 			top: $(this).offset().top,
@@ -248,7 +250,7 @@ function sortRightBottom(a, b) {
 
 function manageBlochs(){
 
-	$('.bloch-grid .bloch-grid-outline .bloch.outline').on('click', function(){
+	$('.bloch-grid .bloch-grid-outline .bloch-outline').on('click', function(){
 		var row = $(this).parent().data('grid-row');
 		var col = $(this).data('grid-col');
 		var grid = $(this).parentsUntil( ".bloch-grid" ).parent();
@@ -257,7 +259,7 @@ function manageBlochs(){
 	})
 	$('.bloch-grid .grid-toggle').on('click', function(){
 
-			$('.bloch-grid').toggleClass('hide-grid');
+			$(this).parent().toggleClass('hide-grid');
 
 	})
 
@@ -282,7 +284,7 @@ function generateGrids(){
 
 				for (var c = 1; c <= cols; c++){
 
-					outlineTable += "<td class='bloch " + color + " outline' data-grid-col='" + c + "'></td>";
+					outlineTable += "<td class='bloch-outline " + color + "' data-grid-col='" + c + "'></td>";
 					piecesTable += "<td class='bloch " + color + " shrink' data-grid-col='" + c + "'></td>";
 
 				}

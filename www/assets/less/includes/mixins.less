@@ -67,12 +67,7 @@
 	position: relative;
 	z-index: 10;
 
-	.bloch-parts{
-		height: 100%;
-	}
-
 	>.bloch-parts .face{
-		content: '';
 		z-index: -1;
 		display: block;
 		position: absolute;
@@ -86,31 +81,8 @@
 		cursor: pointer;
 	}
 
-
-	>.bloch-parts .side{
-		display: block;
-		position: absolute;
-		z-index: 1;
-		background-color: fadeout(@color,60%); 
-		border: 2px dashed fadeout(@color,70%);
-		outline: 2px dashed fadeout(@color,70%);
-	}
-
-	>.bloch-parts .side.top-bottom{
-		width: 100%;
-		height: @depth;
-		left: 0;
-
-	}
-
-	>.bloch-parts .side.left-right{
-		height: 100%;
-		width: @depth;
-		top: 0;
-	}
-
 	&:hover{
-		>.bloch-parts .face, >.bloch-parts .side{
+		>.bloch-parts .face{
 			background-color: fadeout(@color,30%); 
 			border: 2px dashed fadeout(@color,20%);
 			outline: 2px dashed fadeout(@color,20%);
